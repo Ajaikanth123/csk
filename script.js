@@ -115,18 +115,19 @@ if (resetBtn) {
     });
 }
 
-// --- Counter Animation (Speedometer Effect) ---
+// --- Doughnut Chart + Counter Animation (Speedometer Effect) ---
+const doughnutCharts = document.querySelectorAll('.doughnut-chart');
 const counters = document.querySelectorAll('.counter');
 
 function animateCounter(el) {
     const target = parseInt(el.getAttribute('data-target'));
     const suffix = el.getAttribute('data-suffix') || '';
     const prefix = el.getAttribute('data-prefix') || '';
-    const duration = 2000; // 2 seconds
+    const duration = 2000;
     const startTime = performance.now();
 
     function easeOutQuad(t) {
-        return t * (2 - t); // decelerating curve like a speedometer
+        return t * (2 - t);
     }
 
     function update(currentTime) {
@@ -134,29 +135,42 @@ function animateCounter(el) {
         const progress = Math.min(elapsed / duration, 1);
         const easedProgress = easeOutQuad(progress);
         const current = Math.floor(easedProgress * target);
-
         el.textContent = prefix + current + suffix;
-
         if (progress < 1) {
             requestAnimationFrame(update);
         } else {
             el.textContent = prefix + target + suffix;
         }
     }
-
     requestAnimationFrame(update);
 }
 
-const counterObserver = new IntersectionObserver((entries, observer) => {
+function animateRing(chart) {
+    const percent = parseInt(chart.getAttribute('data-percent'));
+    const ringFill = chart.querySelector('.ring-fill');
+    const circumference = 326.73; // 2 * PI * 52
+    const offset = circumference - (percent / 100) * circumference;
+    
+    // Trigger the CSS transition
+    setTimeout(() => {
+        ringFill.style.strokeDashoffset = offset;
+    }, 100);
+}
+
+const chartObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            animateCounter(entry.target);
+            // Animate ring
+            animateRing(entry.target);
+            // Animate counter inside
+            const counter = entry.target.querySelector('.counter');
+            if (counter) animateCounter(counter);
             observer.unobserve(entry.target);
         }
     });
 }, { threshold: 0.5 });
 
-counters.forEach(counter => counterObserver.observe(counter));
+doughnutCharts.forEach(chart => chartObserver.observe(chart));
 
 // --- Smooth Scrolling for Anchor Links ---
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {

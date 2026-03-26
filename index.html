@@ -74,7 +74,7 @@
 
                 <div class="hero-cta">
                     <a href="#booking" class="btn btn-primary btn-lg hover-glow">Book Appointment <i data-lucide="arrow-right"></i></a>
-                    <a href="#services" class="btn btn-outline btn-lg"><i data-lucide="zap"></i> Explore Services</a>
+                    <a href="https://wa.me/919488100023?text=Hello,%20I%20would%20like%20to%20book%20a%20dental%20scan%20appointment." target="_blank" class="btn btn-outline btn-lg"><i data-lucide="message-circle"></i> Chat on WhatsApp</a>
                 </div>
             </div>
 
@@ -85,7 +85,7 @@
                         <div class="card-title"><i data-lucide="layers" class="icon-sm"></i> Live DICOM Viewer</div>
                     </div>
                     <div class="scan-preview">
-                        <div class="scanline"></div> <!-- NEW SCANLINE -->
+                        <div class="scanline"></div>
                         <div class="scan-layers">
                             <div class="layer layer-1"></div>
                             <div class="layer layer-2"></div>
@@ -102,14 +102,6 @@
                 </div>
              </div>
         </div>
-        
-        <!-- Scroll Indicator -->
-        <a href="#services" class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
-            <span>Scroll Down</span>
-        </a>
     </section>
 
     <!-- Core Features Section -->
@@ -225,20 +217,44 @@
                 </div>
                 <div class="about-stats reveal fade-up delay-200">
                     <div class="stat-card glass-card">
-                        <div class="stat-number counter" data-target="99" data-suffix="%">0%</div>
+                        <div class="doughnut-chart" data-percent="99">
+                            <svg viewBox="0 0 120 120">
+                                <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
+                                <circle class="ring-fill ring-green" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73"></circle>
+                            </svg>
+                            <div class="doughnut-value counter" data-target="99" data-suffix="%">0%</div>
+                        </div>
                         <div class="stat-label">Diagnostic Accuracy</div>
                     </div>
                     <div class="stat-card glass-card">
-                        <div class="stat-number counter" data-target="5" data-prefix="< " data-suffix="m">0</div>
+                        <div class="doughnut-chart" data-percent="90">
+                            <svg viewBox="0 0 120 120">
+                                <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
+                                <circle class="ring-fill ring-teal" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73"></circle>
+                            </svg>
+                            <div class="doughnut-value counter" data-target="5" data-prefix="< " data-suffix="m">0</div>
+                        </div>
                         <div class="stat-label">Scan Delivery Time</div>
                     </div>
                     <div class="stat-card glass-card">
-                        <div class="stat-number counter" data-target="100" data-suffix="%">0%</div>
+                        <div class="doughnut-chart" data-percent="100">
+                            <svg viewBox="0 0 120 120">
+                                <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
+                                <circle class="ring-fill ring-emerald" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73"></circle>
+                            </svg>
+                            <div class="doughnut-value counter" data-target="100" data-suffix="%">0%</div>
+                        </div>
                         <div class="stat-label">Digital Workflow</div>
                     </div>
-                    <div class="stat-card glass-card stat-accent">
-                        <i data-lucide="quote"></i>
-                        <p>"Advanced Imaging Simplified. Instant Access. Zero Hassle."</p>
+                    <div class="stat-card glass-card">
+                        <div class="doughnut-chart" data-percent="85">
+                            <svg viewBox="0 0 120 120">
+                                <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
+                                <circle class="ring-fill ring-lime" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73"></circle>
+                            </svg>
+                            <div class="doughnut-value counter" data-target="500" data-suffix="+">0</div>
+                        </div>
+                        <div class="stat-label">Happy Patients</div>
                     </div>
                 </div>
             </div>
@@ -405,6 +421,7 @@
                     <ul>
                         <li><a href="privacy-policy.html">Privacy Policy</a></li>
                         <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="data-deletion.html">Data Deletion</a></li>
                     </ul>
                 </div>
             </div>
